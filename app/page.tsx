@@ -6,26 +6,26 @@ import { useMemo, useState } from "react";
 const FEATURES = [
   {
     title: "Rule-based releases",
-    desc: "Define release conditions with explicit counterparties and auditable steps.",
-    tag: "Compliance",
+    desc: "Escrow releases governed by explicit conditions, counterparties, and deterministic execution.",
+    tag: "Security",
   },
   {
     title: "Vault-first architecture",
-    desc: "Create drafts, validate parties, then fund and execute. No surprises.",
+    desc: "Escrow vaults are created, validated, funded, and executed with full transparency.",
     tag: "Infra",
   },
   {
-    title: "Devnet-ready, mainnet-next",
-    desc: "Ship on devnet now; swap RPC + program IDs when you go mainnet.",
-    tag: "Rollout",
+    title: "Solana-native performance",
+    desc: "Built for Solana finality and low fees, optimized for high-trust on-chain settlement.",
+    tag: "Performance",
   },
 ];
 
 const TRUST = [
   { k: "Finality", v: "~400ms", s: "Solana" },
   { k: "Fees", v: "~$0.001", s: "Typical" },
-  { k: "Model", v: "Escrow Vaults", s: "Program" },
-  { k: "Modes", v: "Draft → Fund", s: "Workflow" },
+  { k: "Model", v: "Escrow Vaults", s: "On-chain" },
+  { k: "Workflow", v: "Create → Fund → Release", s: "Deterministic" },
 ];
 
 export default function HomePage() {
@@ -33,7 +33,7 @@ export default function HomePage() {
 
   const snippet = useMemo(
     () =>
-      `# Latch Protocol\nEscrow rails for serious on-chain deals.\n\n• Draft vaults\n• Fund (devnet)\n• Release / refund (next)\n\nLaunch the app: /app`,
+      `# Latch Protocol\nSecure escrow infrastructure for serious on-chain deals.\n\n• Create escrow vaults\n• Fund securely\n• Release by rules\n\nLaunch the app: /app`,
     []
   );
 
@@ -49,9 +49,8 @@ export default function HomePage() {
     <main className="min-h-screen bg-black text-white">
       {/* Background glow */}
       <div className="pointer-events-none fixed inset-0 opacity-70">
-        <div className="absolute -top-40 left-1/2 h-[640px] w-[980px] -translate-x-1/2 rounded-full bg-fuchsia-500 blur-[160px]" />
-        <div className="absolute bottom-[-260px] right-[-240px] h-[560px] w-[560px] rounded-full bg-cyan-400 blur-[160px]" />
-        <div className="absolute bottom-[-260px] left-[-220px] h-[520px] w-[520px] rounded-full bg-emerald-400 blur-[180px] opacity-60" />
+        <div className="absolute -top-40 left-1/2 h-[640px] w-[980px] -translate-x-1/2 rounded-full bg-fuchsia-600 blur-[160px]" />
+        <div className="absolute bottom-[-260px] right-[-240px] h-[560px] w-[560px] rounded-full bg-purple-600 blur-[160px]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6 py-10">
@@ -60,12 +59,28 @@ export default function HomePage() {
           <div className="flex items-center gap-3">
             <div className="h-11 w-11 rounded-2xl border border-white/10 bg-white/5 backdrop-blur" />
             <div className="leading-tight">
-              <div className="text-sm text-white/60">Solana Escrow</div>
-              <div className="font-semibold tracking-wide">Latch Protocol</div>
+              <div className="text-sm text-white/60">Solana Escrow Protocol</div>
+              <div className="font-semibold tracking-wide">LATCH PROTOCOL</div>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
+            <a
+              href="https://x.com/LatchProtocol"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10"
+            >
+              X
+            </a>
+            <a
+              href="https://github.com/latchprotocol/latch-protocol"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10"
+            >
+              GitHub
+            </a>
             <Link
               href="/app"
               className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:opacity-90"
@@ -85,8 +100,8 @@ export default function HomePage() {
         <section className="mt-14 grid gap-10 lg:grid-cols-2">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Live on Devnet
+              <span className="h-2 w-2 rounded-full bg-purple-400" />
+              Production-ready Escrow Infrastructure
             </div>
 
             <h1 className="mt-6 text-5xl font-semibold tracking-tight md:text-6xl">
@@ -98,8 +113,9 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-6 max-w-xl text-base text-white/70 md:text-lg">
-              Create escrow vaults, lock funds, and release by rules. Minimal UI,
-              maximum trust — built for infra operators, OTC desks, and teams.
+              Latch Protocol provides secure, rule-based escrow vaults for
+              high-trust settlement. Built for infra teams, OTC desks, DAOs, and
+              professional counterparties.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -107,13 +123,13 @@ export default function HomePage() {
                 href="/app"
                 className="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-black hover:opacity-90"
               >
-                Open the Terminal
+                Open Escrow Terminal
               </Link>
               <Link
                 href="/protocol"
                 className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
-                Protocol
+                Protocol Overview
               </Link>
             </div>
 
@@ -136,13 +152,13 @@ export default function HomePage() {
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <div className="text-sm font-semibold">Launch Checklist</div>
+                <div className="text-sm font-semibold">Protocol Capabilities</div>
                 <div className="mt-1 text-sm text-white/60">
-                  What Latch Protocol supports today on Devnet.
+                  Core functionality available today.
                 </div>
               </div>
               <div className="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs text-white/70">
-                v0.1 • Devnet
+                v1.0
               </div>
             </div>
 
@@ -164,19 +180,19 @@ export default function HomePage() {
             </div>
 
             <div className="mt-6 rounded-2xl bg-black/40 p-4 font-mono text-xs text-white/70">
-              <div className="text-white/50">Terminal</div>
+              <div className="text-white/50">Escrow Flow</div>
               <div className="mt-2">
                 &gt; connect wallet<br />
-                &gt; create vault draft<br />
-                &gt; fund (transfer test)<br />
-                &gt; release / refund (next)
+                &gt; create escrow vault<br />
+                &gt; fund securely<br />
+                &gt; release by rules
               </div>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/app"
-                className="flex-1 rounded-xl bg-gradient-to-r from-fuchsia-500/70 to-cyan-400/70 px-5 py-3 text-center text-sm font-semibold text-black hover:opacity-90"
+                className="flex-1 rounded-xl bg-gradient-to-r from-fuchsia-600 to-purple-600 px-5 py-3 text-center text-sm font-semibold text-black hover:opacity-90"
               >
                 Launch App
               </Link>
@@ -194,7 +210,7 @@ export default function HomePage() {
 
         {/* Footer */}
         <footer className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-          <div>© {new Date().getFullYear()} Latch Protocol. Devnet preview.</div>
+          <div>© {new Date().getFullYear()} Latch Protocol</div>
           <div className="flex items-center gap-4">
             <Link href="/app" className="hover:text-white/80">
               App
@@ -202,6 +218,22 @@ export default function HomePage() {
             <Link href="/protocol" className="hover:text-white/80">
               Protocol
             </Link>
+            <a
+              href="https://x.com/LatchProtocol"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white/80"
+            >
+              X
+            </a>
+            <a
+              href="https://github.com/latchprotocol/latch-protocol"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white/80"
+            >
+              GitHub
+            </a>
           </div>
         </footer>
       </div>
